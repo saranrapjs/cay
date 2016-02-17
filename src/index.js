@@ -7,6 +7,9 @@ import { browserHistory, Router, Route } from 'react-router';
 import { Provider } from 'react-redux';
 // Redux Devtools
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+// React-Intl 
+import {IntlProvider} from 'react-intl';
+require('./supportedLocales.js');
 
 import configureStore from './store';
 
@@ -35,16 +38,18 @@ class Root extends React.Component {
 
     return (
       <div>
-        <Provider store={store}>
-          <Router history={browserHistory}>
-            <Route path="/" component={Dashboard}/>
-            <Route path="login" component={Login}/>
-            <Route path="user-manager/:filterId/:userId" component={UserManager}/>
-            <Route path="user-manager/:filterId" component={UserManager}/>
-            <Route path="user-manager" component={UserManager}/>
-            <Route path="explore" component={DataExplorer}/>
-          </Router>
-        </Provider>
+        <IntlProvider>
+          <Provider store={store}>
+            <Router history={browserHistory}>
+              <Route path="/" component={Dashboard}/>
+              <Route path="login" component={Login}/>
+              <Route path="user-manager/:filterId/:userId" component={UserManager}/>
+              <Route path="user-manager/:filterId" component={UserManager}/>
+              <Route path="user-manager" component={UserManager}/>
+              <Route path="explore" component={DataExplorer}/>
+            </Router>
+          </Provider>
+        </IntlProvider>
         {debug}
       </div>
     );

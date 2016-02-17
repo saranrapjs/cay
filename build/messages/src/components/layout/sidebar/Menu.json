@@ -1,0 +1,14 @@
+[
+  {
+    "id": "sidebar.user_manager",
+    "defaultMessage": "Usero Managero"
+  },
+  {
+    "id": "sidebar.explore",
+    "defaultMessage": "Explore"
+  },
+  {
+    "id": "sidebar.settings",
+    "defaultMessage": "Settings"
+  }
+]
