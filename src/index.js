@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 // React-Intl 
-
 import {IntlProvider} from 'react-intl';
 require('./supportedLocales.js');
 import messages from './messages';
@@ -45,17 +44,27 @@ class Root extends React.Component {
       );
     }
 
+    var innerRoutes = (
+      <Route>
+        <Route path="user-manager/:filterId/:userId" component={UserManager}/>
+        <Route path="user-manager/:filterId" component={UserManager}/>
+        <Route path="user-manager" component={UserManager}/>
+        <Route path="explore" component={DataExplorer}/>
+      </Route>
+    );
+
     return (
       <div>
-        <IntlProvider messages={strings} locale={locale}>
+        <IntlProvider messages={strings} locale="de-DE">
           <Provider store={store}>
             <Router history={browserHistory}>
-              <Route path="/" component={Dashboard}/>
               <Route path="login" component={Login}/>
-              <Route path="user-manager/:filterId/:userId" component={UserManager}/>
-              <Route path="user-manager/:filterId" component={UserManager}/>
-              <Route path="user-manager" component={UserManager}/>
-              <Route path="explore" component={DataExplorer}/>
+              <Route path="/" component={Dashboard}>
+                { innerRoutes }
+              </Route>
+              <Route path=":lang">
+                {innerRoutes}
+              </Route>
             </Router>
           </Provider>
         </IntlProvider>

@@ -38,7 +38,6 @@
     "webpack-module-hot-accept": "^1.0.4"
   },
   "dependencies": {
-    "babel-plugin-react-intl": "^1.0.0",
     "color": "^0.10.1",
     "css-loader": "^0.21.0",
     "d3": "^3.5.12",

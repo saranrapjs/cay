@@ -1,18 +1,18 @@
 {
   "sidebar.user_manager": {
     "id": "sidebar.user_manager",
-    "defaultMessage": "User Manager"
+    "defaultMessage": "Benutzermanager"
   },
   "sidebar.explore": {
     "id": "sidebar.explore",
-    "defaultMessage": "Explore"
+    "defaultMessage": "Erkunden"
   },
   "sidebar.settings": {
     "id": "sidebar.settings",
-    "defaultMessage": "Settings"
+    "defaultMessage": "Einstellungen"
   },
   "sidebar.dashboard": {
     "id": "sidebar.dashboard",
-    "defaultMessage": "Dashboard"
+    "defaultMessage": "Instrumententafel"
   }
 }
