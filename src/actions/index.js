@@ -611,12 +611,11 @@ export const makeQueryFromState = (/*type*/) => {
 
     let matches = _.flatten(_.map(filters, filter => {
       let dbField;
-      if (filterState.breakdown === 'author') {
-        dbField = _.template(filter.template)({dimension: 'author.' + filterState.specificBreakdown});
-      } else if (filterState.breakdown === 'section') {
-        dbField = _.template(filter.template)({dimension: 'section.' + filterState.specificBreakdown});
-      } else { // all
-        dbField = _.template(filter.template)({dimension: 'all'});
+
+      if (filterState.breakdown === "all") {
+        dbField = "stats.all." + filter.field;
+      } else {
+        dbField = "stats.dimension." + filter.field;
       }
 
       var matches = [];
@@ -634,6 +633,26 @@ export const makeQueryFromState = (/*type*/) => {
 
     }));
 
+
+    // create a project statement to simplify the data returned
+    let $project = {
+      "_id": 1, // these fields should come from config
+      "name": 1,
+      "status": 1,
+      "stats": {
+        "comments": {
+          "all": "$statistics.comments.all"
+        }
+      }
+    }
+
+    // if we're dealing with a dimention query, add the stats packet
+    if (filterState.breakdown !== "all") {
+      $project.stats.comments.dimension = "$statistics.comments." + filterState.breakdown + "." + filterState.specificBreakdown
+      $project.stats.comments._dimension = filterState.breakdown;
+      $project.stats.comments._dimensionValue = filterState.specificBreakdown;
+    }
+
     let query = {
       name: 'user_search',
       desc: 'user search currently. this is going to be more dynamic in the future',
@@ -646,6 +665,9 @@ export const makeQueryFromState = (/*type*/) => {
           type: 'pipeline',
           collection: 'user_statistics',
           commands: [
+            
+            {$project: $project},
+
             ...matches,
             // {$sort: {'statistics.comments.all.all.count': -1}},
             {$skip: 0},

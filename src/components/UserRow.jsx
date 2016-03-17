@@ -32,8 +32,8 @@ export default class UserRow extends React.Component {
       </CharacterIcon>
     );
 
-    const repliedPercent = Math.floor(user.statistics.comments.all.all.replied_ratio * 100) + '%';
-    const replyPercent = Math.floor(user.statistics.comments.all.all.reply_ratio * 100) + '%';
+    const repliedPercent = Math.floor(user.stats.comments.all.all.replied_ratio * 100) + '%';
+    const replyPercent = Math.floor(user.stats.comments.all.all.reply_ratio * 100) + '%';
 
     return (
       <ListItem
@@ -43,7 +43,7 @@ export default class UserRow extends React.Component {
         leftAvatar={leftAvatar}>
         {user.name}
         <p style={styles.sub}>
-          Comments: {user.statistics.comments.all.all.count} | Replies received: {repliedPercent} | Replies written: {replyPercent}
+          Comments: {user.stats.comments.all.all.count} | Replies received: {repliedPercent} | Replies written: {replyPercent}
         </p>
       </ListItem>
     );
