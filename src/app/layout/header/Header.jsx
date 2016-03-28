@@ -50,10 +50,11 @@ const styles = {
     float: 'left',
     width: 36,
     height: 36,
-    fill: 'white',
+    fill: '#4b4b4b',
     paddingLeft: 10,
     paddingTop: 10,
-    cursor: 'pointer'
+    marginTop: 12,
+    cursor: 'pointer',
   },
   logoutDisabled: {
     display: 'none'
@@ -61,9 +62,9 @@ const styles = {
   nav: {
     marginBottom: 0,
     border: 'none',
-    minHeight: '50px',
+    minHeight: '75px',
     borderRadius: 0,
-    backgroundColor: settings.brandColor
+    backgroundColor: '#d7d7d7'
   },
   logoutButton: {
     float: 'right',

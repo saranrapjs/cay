@@ -116,13 +116,13 @@ const styles = {
     }
   },
   toggler: {
-    borderLeft: '1px solid rgba(255,255,255,.4)',
+    borderLeft: '1px solid rgba(128,128,128,.4)',
     borderRight: 'none',
     borderTop: 'none',
     borderBottom: 'none',
-    color: 'white',
-    height: '50px',
-    lineHeight: '50px',
+    color: '#4b4b4b',
+    height: '75px',
+    lineHeight: '75px',
     padding: '0 10px',
     fontSize: '12pt',
     background: 'none',
@@ -135,7 +135,7 @@ const styles = {
   dropdown: {
     position: 'absolute',
     right: '20px',
-    top: '50px',
+    top: '75px',
     zIndex: '99999',
     borderLeft: '1px solid #ddd',
     borderRight: '1px solid #ddd'
