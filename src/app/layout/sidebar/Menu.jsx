@@ -20,6 +20,7 @@ class Menu extends React.Component {
     return (
       <div>
         <Link to="/" style={styles.logo}>The Coral Project</Link>
+        <div style={ styles.productName }>TRUST</div>
         <ul style={ styles.sideBarMenu }>
           {/*<MenuItem name="Dashboard" target="/" icon={<MdInsertChart />} />*/}
           {/*<MenuItem name="Explore" target="/explore" icon={<MdTimeline />} />*/}
@@ -37,20 +38,27 @@ class Menu extends React.Component {
 var styles = {
   logo: {
     backgroundImage: 'url(/img/logo_white.png)',
-    backgroundSize: '20px 20px',
+    backgroundSize: '40px 40px',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: '10px 14px',
-    backgroundColor: settings.brandColor,
+    backgroundPosition: '20px 14px',
+    backgroundColor: '#4B4B4B',
     color: 'white',
-    fontSize: '1em',
-    padding: '0 20px 0 35px',
+    fontSize: '10pt',
+    padding: '0 20px 0 70px',
     textDecoration: 'none',
     display: 'block',
-    height: '50px',
-    lineHeight: '50px'
+    height: '75px',
+    lineHeight: '73px',
+    fontWeight: 'bold'
   },
   sideBarMenu: {
-    borderTop: '1px solid rgba(255,255,255,.5)'
+  },
+  productName: {
+    background: '#F47F68',
+    textTransform: 'uppercase',
+    color: 'white',
+    padding: '20px',
+    fontWeight: 'bold'
   }
 };
 

@@ -20,19 +20,21 @@ class MenuItem extends React.Component {
 
 const styles = {
   base: {
-    lineHeight: '40px',
-    height: '40px',
+    lineHeight: '55px',
+    height: 'auto',
     backgroundColor: 'transparent',
     ':hover': {
       backgroundColor: color('#F77160').darken(0.1).hexString()
     },
-    borderBottom: '1px solid rgba(255,255,255,.5)'
   },
   link: {
     color: 'white',
-    padding: '12px 20px 12px 15pkx',
+    height: '55px',
+    lineHeight: '55px',
+    padding: '0px 20px 0px 15px',
     display: 'block',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    fontSize: '12pt'
   },
   icon: {
     width: '30px',
