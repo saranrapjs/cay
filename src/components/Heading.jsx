@@ -5,25 +5,29 @@ import Radium from 'radium';
 class Heading extends React.Component {
   render() {
     return (
-      <p style={[
-        styles.base,
-        this.props.size === 'xsmall' && styles.xsmall,
-        this.props.size === 'small' && styles.small,
-        this.props.size === 'medium' && styles.medium,
-        this.props.size === 'large' && styles.large,
-        this.props.size === 'xlarge' && styles.xlarge,
-        this.props.style
-      ]}>
-        <span style={ { fontWeight: this.props.fontWeight } }>{this.props.children}</span>
-        <small style={styles.subhead}>{this.props.subhead}</small>
-      </p>
+      <div>
+        <h1 style={[
+          styles.base,
+          this.props.size === 'xsmall' && styles.xsmall,
+          this.props.size === 'small' && styles.small,
+          this.props.size === 'medium' && styles.medium,
+          this.props.size === 'large' && styles.large,
+          this.props.size === 'xlarge' && styles.xlarge,
+          this.props.style
+        ]}>
+          <span style={ { fontWeight: this.props.fontWeight } }>{this.props.children}</span>
+        </h1>
+        <h2 style={ styles.subhead }>
+          <span>{this.props.subhead}</span>
+        </h2>
+      </div>
     );
   }
 }
 
 const styles = {
   subhead: {
-    fontSize: '.5em',
+    fontSize: '12pt',
     display: 'inline-block',
     paddingLeft: '4px',
     fontWeight: 600,
